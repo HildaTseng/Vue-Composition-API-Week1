@@ -1,5 +1,6 @@
 <template>
   <div class="container mt-3">
+    <h1 class="fs-4 mb-3">2024 Vue 前端新手營 - Composition API - 第一週</h1>
     <table class="table">
       <thead>
         <tr>
