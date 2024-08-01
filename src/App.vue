@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-3">
-    <h1 class="fs-4 mb-3">2024 Vue 前端新手營 - Composition API - 第一週</h1>
-    <table class="table">
+    <h1 class="fs-4 mb-4 text-center">2024 Vue 前端新手營 - Composition API - 第一週</h1>
+    <table class="table align-middle">
       <thead>
         <tr>
           <th class="w-25">品項</th>
@@ -65,6 +65,7 @@
 <script setup>
 import { ref } from 'vue'
 
+// 菜單資料
 const menuData = ref([
   {
     id: 1,
@@ -124,24 +125,31 @@ const menuData = ref([
   }
 ])
 
+// 編輯中的品項
 const editingItem = ref(null)
 
+//  減少庫存
 const decreaseStock = (item) => {
   if (item.stock > 0) {
     item.stock--
   }
 }
 
+// 增加庫存
 const increaseStock = (item) => {
   item.stock++
 }
 
+// 編輯品項
 const editItem = (item) => {
   editingItem.value = { ...item }
 }
 
+// 確認編輯
 const confirmEdit = () => {
+  // 找出編輯中的品項
   const item = menuData.value.find((i) => i.id === editingItem.value.id)
+  // 更新品項資料
   if (item) {
     item.name = editingItem.value.name
     item.description = editingItem.value.description
@@ -150,6 +158,7 @@ const confirmEdit = () => {
   editingItem.value = null
 }
 
+// 取消編輯
 const cancelEdit = () => {
   editingItem.value = null
 }
